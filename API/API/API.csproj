@@ -1,0 +1,64 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AzureFunctionsVersion>v4</AzureFunctionsVersion>
+    <OutputType>Exe</OutputType>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.8.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.7.0" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Microsoft.Azure.Functions.Worker.Extensions.Http" />
+    <None Remove="Users\" />
+    <None Remove="Middlewares\" />
+    <None Remove="Models\" />
+    <None Remove="Models\Response\" />
+    <None Remove="Models\Response\Users\" />
+    <None Remove="Models\Request\" />
+    <None Remove="Models\Request\Users\" />
+    <None Remove="Newtonsoft.Json" />
+    <None Remove="Applications\" />
+    <None Remove="Models\Request\Applications\" />
+    <None Remove="Models\Response\Applications\" />
+    <None Remove="Authentication\" />
+    <None Remove="Models\Request\Authentication\" />
+    <None Remove="Models\Response\Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Threading.ExecutionContext" Alias="ExecutionContext" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Users\" />
+    <Folder Include="Middlewares\" />
+    <Folder Include="Models\" />
+    <Folder Include="Models\Response\" />
+    <Folder Include="Models\Response\Users\" />
+    <Folder Include="Models\Request\" />
+    <Folder Include="Models\Request\Users\" />
+    <Folder Include="Applications\" />
+    <Folder Include="Models\Request\Applications\" />
+    <Folder Include="Models\Response\Applications\" />
+    <Folder Include="Authentication\" />
+    <Folder Include="Models\Request\Authentication\" />
+    <Folder Include="Models\Response\Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\API.BusinessLogic\API.BusinessLogic.csproj">
+      <GlobalPropertiesToRemove></GlobalPropertiesToRemove>
+    </ProjectReference>
+  </ItemGroup>
+</Project>
