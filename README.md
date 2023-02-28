@@ -1,6 +1,11 @@
+# Créer une base de données SqlServer
+```docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=YourStrongPassword" -p 1433:1433 -d mcr.microsoft.com/mssql/server:2019-latest```
+
 # Installer dotnet ef
 
-```dotnet tool install --global dotnet-ef --version 6.0.11```
+```shell
+dotnet tool install --global dotnet-ef --version 6.0.11
+```
 
 # Changer le fichier 
 
